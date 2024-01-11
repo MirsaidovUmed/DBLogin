@@ -8,6 +8,9 @@ type Service struct {
 
 type ServiceInterface interface {
 	Login()
+	ForgotPassword()
+	ChangePassword()
+	CheckVerification()
 }
 
 func NewService(repo repository.RepositoryInterface) ServiceInterface {
