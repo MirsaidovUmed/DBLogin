@@ -16,7 +16,9 @@ func (repo *Repository) ShowOTPByUserID(user_id int) (code string, err error) {
 			WHERE 
 			    user_id = $1
 			AND
-			    is_active = true`, user_id)
+			    is_active = true
+			AND 
+				expired_at > now()`, user_id)
 	err = row.Scan(&code)
 
 	if err != nil {
